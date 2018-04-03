@@ -1,4 +1,4 @@
-# Unity-SocialVR
+# Unity-SocialVR-Example
 
 ## Description:
 A starter project for SocialVR networking using PUN, Photon Voice, and VRTK
