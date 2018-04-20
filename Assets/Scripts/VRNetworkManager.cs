@@ -8,12 +8,11 @@ public class VRNetworkManager : Photon.MonoBehaviour {
 
 	public byte Version = 1;
 
-	public int avatarIndex = 4;
 	/// <summary>if we don't want to connect in Start(), we have to "remember" if we called ConnectUsingSettings()</summary>
 	private bool ConnectInUpdate = true;
 
 	//set avatar prefab gameobject
-	public GameObject[] headPrefabs;
+	public GameObject headPrefab;
 	public GameObject leftHandPrefab;
 	public GameObject rightHandPrefab;
 
@@ -67,7 +66,7 @@ public class VRNetworkManager : Photon.MonoBehaviour {
 	public void OnJoinedRoom()
 	{
 		Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room. From here on, your game would be running. For reference, all callbacks are listed in enum: PhotonNetworkingMessage");
-		PhotonNetwork.Instantiate (headPrefabs[avatarIndex].name, ViveManager.Instance.head.transform.position, ViveManager.Instance.head.transform.rotation, 0);
+		PhotonNetwork.Instantiate (headPrefab.name, ViveManager.Instance.head.transform.position, ViveManager.Instance.head.transform.rotation, 0);
 		PhotonNetwork.Instantiate (leftHandPrefab.name, ViveManager.Instance.leftHand.transform.position, ViveManager.Instance.leftHand.transform.rotation, 0);
 		PhotonNetwork.Instantiate (rightHandPrefab.name, ViveManager.Instance.rightHand.transform.position, ViveManager.Instance.rightHand.transform.rotation, 0);
 
